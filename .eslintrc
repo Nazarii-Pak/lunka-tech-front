@@ -1,0 +1,126 @@
+{
+	"env": {
+		"node": true,
+		"es6": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@next/next/recommended"
+	],
+	"rules": {
+		"import/extensions": [
+			"off"
+		],
+		"import/prefer-default-export": [
+			"off"
+		],
+		"global-require": [
+			"off"
+		],
+		"arrow-parens": [
+			"error",
+			"as-needed"
+		],
+		"camelcase": "off",
+		"comma-dangle": "off",
+		"consistent-return": "off",
+		"curly": [
+			"error",
+			"multi-or-nest",
+			"consistent"
+		],
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"no-console": "off",
+		"no-multiple-empty-lines": [
+			"error",
+			{
+				"max": 1,
+				"maxEOF": 0,
+				"maxBOF": 0
+			}
+		],
+		"no-param-reassign": [
+			"error",
+			{
+				"props": false
+			}
+		],
+		"no-plusplus": [
+			"error",
+			{
+				"allowForLoopAfterthoughts": true
+			}
+		],
+		"no-tabs": [
+			"error",
+			{
+				"allowIndentationTabs": true
+			}
+		],
+		"no-trailing-spaces": "error",
+		"no-use-before-define": [
+			"error",
+			{
+				"functions": false
+			}
+		],
+		"object-curly-spacing": [
+			"error",
+			"always"
+		],
+		"object-curly-newline": [
+			"error",
+			{
+				"multiline": true,
+				"consistent": true
+			}
+		],
+		"quotes": [
+			"warn",
+			"single",
+			{
+				"avoidEscape": true
+			}
+		],
+		"semi": [
+			"error",
+			"never"
+		],
+		"allowObjectPatternsAsParameters": "off",
+		"eol-last": [
+			"error",
+			"always"
+		],
+		"newline-before-return": "error",
+    "@typescript-eslint/ban-ts-comment": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-unused-vars": "warn"
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"paths": [
+					"."
+				],
+				"extensions": [
+					".js",
+					".ts",
+					"tsx",
+					"jsx"
+				]
+			}
+		}
+	}
+
+}
