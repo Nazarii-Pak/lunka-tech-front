@@ -27,7 +27,7 @@ const generateRandomTask = (userId: string, date: string): Task => {
 	}
 }
 
-const generateTasks = async (numOfDays: number, numOfTasksPerDay: number) => {
+const generateTasks = (numOfDays: number, numOfTasksPerDay: number) => {
 	const currentDate = new Date()
 	const tasks: Task[] = []
 	const userIdList = users.map(user => user.id)
