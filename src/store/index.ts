@@ -19,6 +19,8 @@ export interface ISlice {
 	updateTask: (task: Partial<Task>) => void
 	taskContextMenu: TaskContextMenu | null
 	setTaskContextMenu: (taskContextMenu: TaskContextMenu | null) => void
+	_isHydrated: boolean
+	setHydrated: (isHydrated: boolean) => void
 }
 
 const Slice: StateCreator<ISlice> = set => {
@@ -28,6 +30,8 @@ const Slice: StateCreator<ISlice> = set => {
 		updateTask: (task: Partial<Task>) =>
 			set(state => ({ tasks: state.tasks.map(t => (t.id === task.id ? { ...t, ...task } : t)) })),
 		setTaskContextMenu: (taskContextMenu: TaskContextMenu | null) => set({ taskContextMenu }),
+		_isHydrated: false,
+		setHydrated: (isHydrated: boolean) => set({ _isHydrated: isHydrated }),
 	}
 }
 
@@ -38,6 +42,9 @@ export const useAppStore = create<ISlice>()(
 		}),
 		{
 			name: 'lunka-tech-store',
+			onRehydrateStorage: () => state => {
+				state?.setHydrated(true)
+			},
 		}
 	)
 )

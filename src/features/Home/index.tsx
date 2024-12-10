@@ -11,14 +11,18 @@ import TaskDetailsDrawer from './components/TaskDetailsDrawer'
 import { useAppStore } from '@/store'
 
 const HomePage: FC = () => {
-	const { tasks, setTasks } = useAppStore()
+	const tasks = useAppStore(state => state.tasks)
+	const setTasks = useAppStore(state => state.setTasks)
+	const isHydrated = useAppStore(state => state._isHydrated)
 
 	useEffect(() => {
+		if (!isHydrated) return
+
 		if (tasks.length === 0) {
 			const tasks = generateTasks(7, 2)
 			setTasks(tasks)
 		}
-	}, [])
+	}, [isHydrated])
 
 	const dates = Array.from({ length: 7 }, (_, i) => addDays(new Date(), i))
 
